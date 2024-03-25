@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 import 'dotenv/config';
 
+import { readFile } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
 import * as process from 'node:process';
+import { fileURLToPath } from 'node:url';
 
 import { Command, Option } from 'commander';
-import { readPackageUp } from 'read-pkg-up';
 
 import { log } from '../src/logger/logger.mjs';
 import { sourceFileHandler } from '../src/source-file-handler.mjs';
@@ -15,9 +17,22 @@ import transpileFile from '../src/transpile-file.mjs';
  * @typedef {import('../src/types.mjs').TranspileOptions} TranspileOptions
  */
 
-const { packageJson } = await readPackageUp();
-
 const program = new Command();
+
+let packageJson = {};
+
+try {
+  const __dirname = dirname(fileURLToPath(import.meta.url));
+  const packageJsonString = await readFile(
+    resolve(__dirname, '..', 'package.json'),
+    {
+      encoding: 'utf8',
+    }
+  );
+  packageJson = JSON.parse(packageJsonString);
+} catch (error) {
+  program.error(error.message);
+}
 
 /**
  * @param {string} typescriptPath - The path to the typescript source directory or file.

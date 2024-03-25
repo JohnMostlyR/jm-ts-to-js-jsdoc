@@ -1,7 +1,6 @@
 import * as fsPromises from 'node:fs/promises';
 import * as path from 'node:path';
-
-import { readPackageUp } from 'read-pkg-up';
+import { fileURLToPath } from 'node:url';
 
 function getPath(dependency) {
   const regex = /\.{2,}\//;
@@ -73,7 +72,14 @@ async function getPluginMetadata(dependencyPath) {
 
 async function generateThirdPartyNotices() {
   try {
-    const { packageJson } = await readPackageUp({ normalize: true });
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const packageJsonString = await fsPromises.readFile(
+      path.resolve(__dirname, '..', 'package.json'),
+      {
+        encoding: 'utf8',
+      }
+    );
+    const packageJson = JSON.parse(packageJsonString);
     const allDependencies = Object.keys({
       ...packageJson.dependencies,
       ...packageJson.devDependencies,
