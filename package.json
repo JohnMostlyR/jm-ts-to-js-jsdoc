@@ -1,0 +1,80 @@
+{
+  "name": "@jm/ts-to-js-jsdoc",
+  "version": "1.0.0",
+  "description": "Transpiles TypeScript to JavaScript, adding JSDoc comments for type documentation",
+  "keywords": [
+    "TypeScript",
+    "JavaScript",
+    "JSDoc",
+    "Transpiler"
+  ],
+  "homepage": "https://github.com/Mensae/jm-ts-to-js-jsdoc",
+  "bugs": {
+    "url": "https://github.com/Mensae/jm-ts-to-js-jsdoc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mensae/jm-ts-to-js-jsdoc.git"
+  },
+  "license": "MIT",
+  "author": "Johan Meester",
+  "type": "module",
+  "exports": {
+    "./src/document/*.mjs": "./src/document/*.mjs",
+    "./src/logger/*.mjs": "./src/logger/*.mjs",
+    "./src/utils/*.mjs": "./src/utils/*.mjs",
+    "./src/source-file-handler.mjs": "./src/source-file-handler.mjs",
+    "./src/transpile-file.mjs": "./src/transpile-file.mjs",
+    "./src/transpile.mjs": "./src/transpile.mjs",
+    "./src/types.mjs": "./src/types.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "jm-ts-to-js-jsdoc": "bin/cli.mjs"
+  },
+  "scripts": {
+    "code-quality:check": "npm run lint:check && npm run format:check",
+    "code-quality:fix": "npm run lint:fix && npm run format:fix",
+    "dependencies:update": "npm-check --update --save-exact",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "generate-third-party-notices": "node ./scripts/generate-third-party-notices.mjs",
+    "lint:check": "eslint --config .eslintrc.cjs .",
+    "lint:fix": "eslint --config .eslintrc.cjs --fix .",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:utils:report": "node ./bin/cli-dev-utils.mjs --missing-expect-files --missing-source-files",
+    "test:verbose": "npm run test -- --verbose --detectOpenHandles",
+    "transpile:demos": "node ./scripts/transpile-demos.mjs",
+    "transpile:issues": "node ./scripts/transpile-issues.mjs",
+    "validate": "npm run code-quality:check && npm run test"
+  },
+  "dependencies": {
+    "commander": "12.0.0",
+    "cross-env": "7.0.3",
+    "dotenv": "16.4.5",
+    "glob": "10.3.10",
+    "memoize-one": "6.0.0",
+    "prettier": "3.2.5",
+    "read-pkg-up": "11.0.0",
+    "triple-beam": "1.4.1",
+    "ts-morph": "22.0.0",
+    "winston": "3.13.0",
+    "winston-transport": "4.7.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "29.7.0",
+    "@microsoft/eslint-plugin-sdl": "0.2.2",
+    "@types/node": "20.11.30",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-jest": "27.9.0",
+    "eslint-plugin-jsdoc": "48.2.1",
+    "eslint-plugin-n": "16.6.2",
+    "eslint-plugin-unicorn": "51.0.1",
+    "jest": "29.7.0",
+    "npm-check": "6.0.1"
+  },
+  "engines": {
+    "node": ">=16.20.0"
+  }
+}
