@@ -1,6 +1,6 @@
 {
-  "name": "@jm/ts-to-js-jsdoc",
-  "version": "1.0.0",
+  "name": "jm-ts-to-js-jsdoc",
+  "version": "1.0.1",
   "description": "Transpiles TypeScript to JavaScript, adding JSDoc comments for type documentation",
   "keywords": [
     "TypeScript",
