@@ -8,13 +8,13 @@
     "JSDoc",
     "Transpiler"
   ],
-  "homepage": "https://github.com/Mensae/jm-ts-to-js-jsdoc",
+  "homepage": "https://github.com/JohnMostlyR/jm-ts-to-js-jsdoc",
   "bugs": {
-    "url": "https://github.com/Mensae/jm-ts-to-js-jsdoc/issues"
+    "url": "https://github.com/JohnMostlyR/jm-ts-to-js-jsdoc/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mensae/jm-ts-to-js-jsdoc.git"
+    "url": "git+https://github.com/JohnMostlyR/jm-ts-to-js-jsdoc.git"
   },
   "license": "MIT",
   "author": "Johan Meester",
