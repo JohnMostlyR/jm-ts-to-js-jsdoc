@@ -38,4 +38,4 @@ jobs:
         run: npm run format:check
 
       - name: Run tests
-        run: npm
+        run: npm test
