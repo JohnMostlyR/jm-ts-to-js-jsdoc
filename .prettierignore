@@ -6,6 +6,7 @@ test-reports/
 demos/
 src/utils/tests/fixtures/
 issues/
+.github/
 
 ### JetBrains ###
 .idea
