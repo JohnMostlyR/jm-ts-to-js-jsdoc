@@ -54,7 +54,7 @@
     "dotenv": "16.4.5",
     "glob": "10.5.0",
     "memoize-one": "6.0.0",
-    "prettier": "3.7.4",
+    "prettier": "3.8.1",
     "triple-beam": "1.4.1",
     "ts-morph": "22.0.0",
     "winston": "3.19.0",
