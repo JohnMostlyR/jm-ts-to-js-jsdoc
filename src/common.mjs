@@ -107,12 +107,12 @@ export function convertTypeStringToJSDocType(input) {
       .replace(/\s+([,;.])/g, '$1')
       /* Add spaces after a `,` or `;` character */
       .replace(/([,;])(\S.*)/g, `$1${Spaces.oneSpace}$2`)
-      /* JSDoc uses an astrix to document an `any` type */
+      /* JSDoc uses an asterisk to document an `any` type */
       .replace(/^any(\[\])?$/, '*$1')
       .replace(/^(\w+)<any(\[\])?>$/i, '$1<*$2>')
       .replace(/^(\w+)<any(\[\])?,\s*([^>]+)>$/i, '$1<*$2, $3>')
       .replace(/^(\w+)<([^,]+),\s*any(\[\])?>$/i, '$1<$2, *$3>')
-      /* JSDoc uses a questionmark to document an `unknown` type */
+      /* JSDoc uses a question mark to document an `unknown` type */
       .replace(/^unknown(\[\])?$/, '?$1')
       .replace(/^(\w+)<unknown(\[\])?>$/i, '$1<?$2>')
       .replace(/^(\w+)<unknown(\[\])?,\s*([^>]+)>$/i, '$1<?$2, $3>')

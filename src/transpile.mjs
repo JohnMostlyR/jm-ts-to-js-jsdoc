@@ -85,7 +85,7 @@ async function transpile(
     .map((line) => {
       /*
        * [🙈 HACK 🙈]
-       * Removing leading mulitline comments as these are problematic when inserting
+       * Removing leading multiline comments as these are problematic when inserting
        * JSDoc (The JSDoc is inserted after the comment, this is an error).
        */
       const _line = line.replace(
@@ -156,8 +156,8 @@ async function transpile(
 
   try {
     const project = new Project(projectOptions);
-    const sourceFileExtention = isJSX ? 'tsx' : 'ts';
-    const sourceFileName = `${pid}.${sourceFileExtention}`;
+    const sourceFileExtension = isJSX ? 'tsx' : 'ts';
+    const sourceFileName = `${pid}.${sourceFileExtension}`;
     const sourceFile = project.createSourceFile(
       sourceFileName,
       sourceFileText,
@@ -295,7 +295,7 @@ async function transpile(
 
     return { javascript: javascriptOut, error: undefined };
   } catch (/** @type {ManipulationError} */ error) {
-    log.error('[transpile.transpile()] an error occured: ', error);
+    log.error('[transpile.transpile()] an error occurred: ', error);
     return {
       javascript: undefined,
       error: { oldText: error.oldText, newText: error.newText },

@@ -38,7 +38,7 @@ async function transpileFile(typescriptFilePath, javascriptFilePath, options) {
 
     if (error) {
       log.warn(
-        `An error occured while transpiling file: ${typescriptFilePath}`
+        `An error occurred while transpiling file: ${typescriptFilePath}`
       );
 
       const { oldText, newText } = error;
