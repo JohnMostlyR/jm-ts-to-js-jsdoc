@@ -27,7 +27,7 @@ export function documentATypeParameter(typeParameter, jsDocTagsToAdd) {
 
   const {
     name: typeParameterName,
-    constraint: typeParameterContraint,
+    constraint: typeParameterConstraint,
     default: typeParameterDefault,
   } = typeParameterDeclarationStructure;
 
@@ -38,13 +38,13 @@ export function documentATypeParameter(typeParameter, jsDocTagsToAdd) {
   const tagTextParts = [];
 
   /* constraint */
-  if (isString(typeParameterContraint)) {
+  if (isString(typeParameterConstraint)) {
     log.trace(
       `${thisFunctionNameTag} type parameter constraint: %s`,
-      typeParameterContraint
+      typeParameterConstraint
     );
 
-    const constraint = `{${typeParameterContraint}}`;
+    const constraint = `{${typeParameterConstraint}}`;
 
     tagTextParts.push(constraint);
   }

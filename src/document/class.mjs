@@ -26,7 +26,7 @@ import { documentATypeParameter } from './type-parameter.mjs';
 /**
  * Document a modifier for a class member.
  *
- * We do this because we do not want to lose any information. JavaScript, appart
+ * We do this because we do not want to lose any information. JavaScript, apart
  * for the `static` keyword, does however not support modifiers so programmatically
  * it does not have any meaning.
  *
